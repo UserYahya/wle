@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Loves Earth 2025 in Bangladesh</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        /* Base styles and font definitions */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #ffffff;
+        }
+        .font-bengali {
+            font-family: 'Noto Sans Bengali', sans-serif;
+        }
+
+        /* New Hero Section with a stunning background image and gradient overlay */
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(0, 83, 104, 0.7), rgba(2, 53, 68, 0.5)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Lawachara_Forest.jpg/1024px-Lawachara_Forest.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Scroll-triggered Animations for a dynamic feel */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Styled Accordion for a modern look */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .accordion-header svg {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Language Switcher Active State */
+        .lang-btn.active {
+            background-color: #0891B2; /* Cyan-600 */
+            color: white;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <!-- Header with a blurred background for a premium feel -->
+    <header id="header" class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Wiki_Loves_Earth_Bangladesh.svg/330px-Wiki_Loves_Earth_Bangladesh.svg.png" alt="Wiki Loves Earth Logo" class="h-8 w-auto">
+                <span data-key="header-title" class="font-bold text-xl text-gray-700">WLE Bangladesh 2025</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                 <!-- Language Switcher -->
+                <div class="flex border-2 border-gray-200 rounded-full overflow-hidden">
+                    <button id="lang-en" class="lang-btn px-4 py-1 text-sm font-medium transition-colors duration-300 active" data-lang="en">EN</button>
+                    <button id="lang-bn" class="lang-btn px-4 py-1 text-sm font-medium transition-colors duration-300" data-lang="bn">বাংলা</button>
+                </div>
+                <a href="#contact" data-key="header-contact" class="hidden md:inline-block bg-cyan-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-cyan-700 transition-all hover:scale-105 transform">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-white relative">
+        <div class="relative z-10 text-center px-4 reveal visible">
+            <h1 data-key="hero-title" class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider mb-4" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">Wiki Loves Earth 2025</h1>
+            <p data-key="hero-subtitle" class="text-xl md:text-2xl font-light max-w-3xl mx-auto mb-8" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">Celebrate the natural beauty of Bangladesh. Document. Share. Win.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wle-bd&categories=Protected+areas+of+Bangladesh&uselang=bn" data-key="hero-btn-upload" class="bg-amber-500 text-white font-bold py-3 px-8 rounded-full text-lg uppercase hover:bg-amber-600 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                    <span>Upload Photos</span>
+                </a>
+                <a href="https://bn.wikipedia.org/wiki/%E0%A6%89%E0%A6%87%E0%A6%95%E0%A6%BF%E0%A6%AA%E0%A6%BF%E0%A6%A1%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A6%BE:%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0_%E0%A6%B8%E0%A6%82%E0%A6%B0%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BF%E0%A6%A4_%E0%A6%85%E0%A6%9E%E0%A7%8D%E0%A6%9A%E0%A6%B2%E0%A7%87%E0%A6%B0_%E0%A6%A4%E0%A6%BE%E0%A6%B2%E0%A6%BF%E0%A6%95%E0%A6%BE" data-key="hero-btn-areas" class="bg-cyan-600 text-white font-bold py-3 px-8 rounded-full text-lg uppercase hover:bg-cyan-700 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <span>View Protected Areas</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-16 md:py-24 space-y-20 md:space-y-32">
+
+        <!-- 2. About the Contest -->
+        <section id="about" class="reveal">
+            <h2 data-key="about-title" class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">About the Contest</h2>
+            <div class="w-24 h-1.5 bg-cyan-500 mx-auto mb-10"></div>
+            <p data-key="about-desc" class="max-w-4xl mx-auto text-center text-lg text-gray-600 mb-12">
+                Wiki Loves Earth Bangladesh 2025 is the local edition of the global nature photography competition organized by the Wikimedia Foundation and affiliates. The goal is to collect freely licensed photographs of protected natural areas and species to enrich Wikimedia Commons and educational content.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-cyan-500 mb-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div>
+                    <h3 data-key="about-dates-title" class="text-xl font-bold mb-2">Dates</h3>
+                    <p data-key="about-dates-desc" class="text-gray-600">1 July – 31 July 2025</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-cyan-500 mb-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div>
+                    <h3 data-key="about-who-title" class="text-xl font-bold mb-2">Who can Participate?</h3>
+                    <p data-key="about-who-desc" class="text-gray-600">Open to all photographers in Bangladesh</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-cyan-500 mb-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15.58 14.42a3.5 3.5 0 01-5.16 0" /></svg></div>
+                    <h3 data-key="about-focus-title" class="text-xl font-bold mb-2">Focus</h3>
+                    <p data-key="about-focus-desc" class="text-gray-600">National parks, eco-parks, wildlife sanctuaries, species close-ups</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. How to Participate -->
+        <section id="how-to" class="reveal">
+            <h2 data-key="how-title" class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">How to Participate</h2>
+            <div class="w-24 h-1.5 bg-amber-500 mx-auto mb-12"></div>
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Dotted line for desktop -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-2 border-dashed border-gray-300" style="transform: translateY(-50%);"></div>
+                <div class="relative grid md:grid-cols-5 gap-8 text-center items-start">
+                    <div class="flex flex-col items-center space-y-3">
+                        <div class="bg-cyan-600 text-white rounded-full h-16 w-16 flex items-center justify-center font-bold text-2xl z-10 shadow-lg">1</div>
+                        <h3 data-key="how-step1-title" class="text-lg font-semibold mt-4">Create Account</h3>
+                        <p data-key="how-step1-desc" class="text-sm text-gray-500">Create a Wikimedia account.</p>
+                        <a href="https://commons.wikimedia.org/wiki/Special:CreateAccount" data-key="how-step1-link" class="text-cyan-700 hover:underline font-medium">➜ Create one</a>
+                    </div>
+                    <div class="flex flex-col items-center space-y-3">
+                        <div class="bg-cyan-600 text-white rounded-full h-16 w-16 flex items-center justify-center font-bold text-2xl z-10 shadow-lg">2</div>
+                        <h3 data-key="how-step2-title" class="text-lg font-semibold mt-4">Choose Area</h3>
+                        <p data-key="how-step2-desc" class="text-sm text-gray-500">Choose a protected area.</p>
+                        <a href="https://bn.wikipedia.org/wiki/%E0%A6%89%E0%A6%87%E0%A6%95%E0%A6%BF%E0%A6%AA%E0%A6%BF%E0%A6%A1%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A6%BE:%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0_%E0%A6%B8%E0%A6%82%E0%A6%B0%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BF%E0%A6%A4_%E0%A6%85%E0%A6%9E%E0%A7%8D%E0%A6%9A%E0%A6%B2%E0%A7%87%E0%A6%B0_%E0%A6%A4%E0%A6%BE%E0%A6%B2%E0%A6%BF%E0%A6%95%E0%A6%BE" data-key="how-step2-link" class="text-cyan-700 hover:underline font-medium">➜ See the list (বাংলা)</a>
+                    </div>
+                    <div class="flex flex-col items-center space-y-3">
+                        <div class="bg-cyan-600 text-white rounded-full h-16 w-16 flex items-center justify-center font-bold text-2xl z-10 shadow-lg">3</div>
+                        <h3 data-key="how-step3-title" class="text-lg font-semibold mt-4">Take Photos</h3>
+                        <p data-key="how-step3-desc" class="text-sm text-gray-500">Take photos – respectful to nature.</p>
+                    </div>
+                    <div class="flex flex-col items-center space-y-3">
+                        <div class="bg-amber-500 text-white rounded-full h-16 w-16 flex items-center justify-center font-bold text-2xl z-10 shadow-lg">4</div>
+                        <h3 data-key="how-step4-title" class="text-lg font-semibold mt-4">Upload</h3>
+                        <p data-key="how-step4-desc" class="text-sm text-gray-500">Upload via Campaign Link.</p>
+                        <a href="https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wle-bd&categories=Protected+areas+of+Bangladesh&uselang=bn" data-key="how-step4-link" class="text-amber-600 hover:underline font-medium">➜ Upload Now</a>
+                    </div>
+                    <div class="flex flex-col items-center space-y-3">
+                        <div class="bg-cyan-600 text-white rounded-full h-16 w-16 flex items-center justify-center font-bold text-2xl z-10 shadow-lg">5</div>
+                        <h3 data-key="how-step5-title" class="text-lg font-semibold mt-4">Celebrate</h3>
+                        <p data-key="how-step5-desc" class="text-sm text-gray-500">Celebrate your impact!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Rules -->
+        <section id="rules" class="reveal">
+            <h2 data-key="rules-title" class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Contest Rules</h2>
+            <div class="w-24 h-1.5 bg-cyan-500 mx-auto mb-10"></div>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="accordion-item bg-white rounded-lg shadow-md border border-gray-200">
+                    <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold text-lg hover:bg-cyan-50/50 rounded-t-lg">
+                        <span data-key="rules-q1">What are the photo requirements?</span>
+                        <svg class="w-6 h-6 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p data-key="rules-a1" class="p-5 border-t border-gray-200 text-gray-600">Must be a minimum of 2 megapixels. Photo must be taken by you (the uploader).</p>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-lg shadow-md border border-gray-200">
+                    <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold text-lg hover:bg-cyan-50/50 rounded-t-lg">
+                        <span data-key="rules-q2">Where should photos be taken?</span>
+                         <svg class="w-6 h-6 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p data-key="rules-a2" class="p-5 border-t border-gray-200 text-gray-600">Photos must be taken within a designated protected area of Bangladesh. This includes photos of the site itself or close-ups of species within that area.</p>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white rounded-lg shadow-md border border-gray-200">
+                    <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold text-lg hover:bg-cyan-50/50 rounded-t-lg">
+                        <span data-key="rules-q3">What is the upload period?</span>
+                         <svg class="w-6 h-6 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p data-key="rules-a3" class="p-5 border-t border-gray-200 text-gray-600">All photos must be uploaded between July 1st and July 31st, 2025.</p>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-lg shadow-md border border-gray-200">
+                    <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold text-lg hover:bg-cyan-50/50 rounded-t-lg">
+                        <span data-key="rules-q4">How should I categorize my photos?</span>
+                         <svg class="w-6 h-6 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p data-key="rules-a4" class="p-5 border-t border-gray-200 text-gray-600">All submissions must be properly categorized and described on Wikimedia Commons to be eligible.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#" data-key="rules-link" class="text-cyan-700 font-semibold hover:underline">🖇 Full Rules (Commons)</a>
+            </div>
+        </section>
+
+        <!-- 5. Prizes -->
+        <section id="prizes" class="reveal">
+            <h2 data-key="prizes-title" class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Prizes and Recognition</h2>
+            <div class="w-24 h-1.5 bg-amber-500 mx-auto mb-10"></div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-amber-500">
+                    <h3 data-key="prizes-global-title" class="text-2xl font-bold mb-4">💰 Global Prizes</h3>
+                    <ul data-key="prizes-global-list" class="list-disc list-inside space-y-2 text-gray-600">
+                        <li>Sponsored by Wiki Loves Earth International</li>
+                        <li>Amazon or equivalent online gift vouchers</li>
+                        <li>Top 15 from Bangladesh go to International Jury</li>
+                        <li>Chance to be featured on Wikimedia channels</li>
+                    </ul>
+                </div>
+                 <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-cyan-500">
+                    <h3 data-key="prizes-local-title" class="text-2xl font-bold mb-4">🎁 Local Prizes</h3>
+                    <ul data-key="prizes-local-list" class="list-disc list-inside space-y-2 text-gray-600">
+                        <li>Special Wikimedia-themed souvenirs.</li>
+                        <li>Top contributors may be invited to community events</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 6. Gallery / Stats -->
+        <section id="gallery" class="reveal">
+            <h2 data-key="gallery-title" class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Gallery & Stats</h2>
+            <div class="w-24 h-1.5 bg-cyan-500 mx-auto mb-10"></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Pheasant-tailed_jacana_in_flower.jpg/960px-Pheasant-tailed_jacana_in_flower.jpg" alt="Gallery image 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300"></div>
+                </div>
+                 <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0_%E0%A6%85%E0%A6%AA%E0%A6%B0%E0%A7%82%E0%A6%AA_%E0%A6%B0%E0%A7%82%E0%A6%AA.jpg/960px-%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0_%E0%A6%85%E0%A6%AA%E0%A6%B0%E0%A7%82%E0%A6%AA_%E0%A6%B0%E0%A7%82%E0%A6%AA.jpg" alt="Gallery image 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300"></div>
+                </div>
+                 <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Little_egret_at_Sundarbans_East_Wildlife_Sanctuary.jpg/960px-Little_egret_at_Sundarbans_East_Wildlife_Sanctuary.jpg" alt="Gallery image 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300"></div>
+                </div>
+                 <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ratargul-02.jpg/960px-Ratargul-02.jpg" alt="Gallery image 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300"></div>
+                </div>
+            </div>
+             <div class="text-center mt-8">
+                 <p data-key="gallery-desc" class="text-lg text-gray-600 mb-4">See featured submissions from the 2025 competition.</p>
+                <a href="#" data-key="gallery-link" class="bg-gray-800 text-white font-bold py-3 px-8 rounded-full text-lg uppercase hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    📊 View Uploaded Image on Commons
+                </a>
+            </div>
+        </section>
+
+        <!-- 7. Organizers -->
+        <section id="organizers" class="reveal">
+            <h2 data-key="organizers-title" class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Meet the Organizers</h2>
+            <div class="w-24 h-1.5 bg-amber-500 mx-auto mb-10"></div>
+            <div class="max-w-6xl mx-auto text-center space-y-12">
+                <!-- Chief Organizer - Prioritized -->
+                <div class="flex justify-center">
+                    <div class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-amber-500 w-full md:w-1/3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Yahya_at_Bangla_WikiConference_2024.jpg/960px-Yahya_at_Bangla_WikiConference_2024.jpg" alt="Yahya" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-amber-400">
+                        <h4 class="text-xl font-bold">Yahya</h4>
+                        <p data-key="organizers-role1" class="text-md text-amber-600 font-semibold mb-2">Chief Organizer</p>
+                        <a href="#" class="text-cyan-700 text-sm hover:underline">➜ User:Yahya</a>
+                    </div>
+                </div>
+                <!-- Other Organizers -->
+                <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                     <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <img src="https://placehold.co/150x150/06B6D4/FFFFFF?text=T" alt="Tahmid" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-cyan-400">
+                        <h4 class="font-bold">Tahmid</h4>
+                        <p data-key="organizers-role2" class="text-sm text-gray-500 mb-2">Organizer</p>
+                        <a href="#" class="text-cyan-700 text-xs hover:underline">➜ User:Tahmid</a>
+                    </div>
+                     <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <img src="https://placehold.co/150x150/06B6D4/FFFFFF?text=S" alt="MS Sakib" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-cyan-400">
+                        <h4 class="font-bold">MS Sakib</h4>
+                        <p data-key="organizers-role3" class="text-sm text-gray-500 mb-2">Organizer</p>
+                        <a href="#" class="text-cyan-700 text-xs hover:underline">➜ User:MS_Sakib</a>
+                    </div>
+                     <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <img src="https://placehold.co/150x150/06B6D4/FFFFFF?text=I" alt="Ishtiak Abdullah" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-cyan-400">
+                        <h4 class="font-bold">Ishtiak Abdullah</h4>
+                        <p data-key="organizers-role4" class="text-sm text-gray-500 mb-2">Organizer</p>
+                        <a href="#" class="text-cyan-700 text-xs hover:underline">➜ User:Ishtiak_Abdullah</a>
+                    </div>
+                     <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <img src="https://placehold.co/150x150/06B6D4/FFFFFF?text=M" alt="Maruf" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-cyan-400">
+                        <h4 class="font-bold">Maruf</h4>
+                        <p data-key="organizers-role5" class="text-sm text-gray-500 mb-2">Organizer</p>
+                        <a href="#" class="text-cyan-700 text-xs hover:underline">➜ User:Maruf</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 8. Contact -->
+        <section id="contact" class="reveal">
+            <h2 data-key="contact-title" class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Get in Touch</h2>
+            <div class="w-24 h-1.5 bg-cyan-500 mx-auto mb-10"></div>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+                <a href="mailto:yahya@bnwp.org" class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="text-cyan-600 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+                    <h3 data-key="contact-email" class="text-xl font-bold mb-1 group-hover:text-cyan-600">Email</h3>
+                    <p class="text-gray-500">yahya@bnwp.org</p>
+                </a>
+                <a href="https://t.me/+Sxp9ay_LlfdkMzg1" class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="text-cyan-600 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg></div>
+                    <h3 data-key="contact-telegram" class="text-xl font-bold mb-1 group-hover:text-cyan-600">Telegram</h3>
+                    <p class="text-gray-500">Join Group</p>
+                </a>
+                <a href="https://commons.wikimedia.org/wiki/Commons_talk:Wiki_Loves_Earth_2025_in_Bangladesh" class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="text-cyan-600 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h8a2 2 0 012 2v4z" /></svg></div>
+                    <h3 data-key="contact-commons" class="text-xl font-bold mb-1 group-hover:text-cyan-600">Commons Talk Page</h3>
+                    <p class="text-gray-500">Discussion</p>
+                </a>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-12">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/WLE_blue_Logo_%28no_text%29.svg/300px-WLE_blue_Logo_%28no_text%29.svg.png" alt="Wikimedia Bangladesh" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/2048px-Commons-logo.svg.png" alt="Wikimedia Commons" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Wikimedia-UA-logo-Ukrainian-flag.png/250px-Wikimedia-UA-logo-Ukrainian-flag.png" alt="Wiki Loves Earth" class="h-12 opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+            <div class="text-center text-gray-400 text-sm">
+                <p class="mb-2">
+                    <a href="#" data-key="footer-terms" class="hover:underline">Terms of Use</a> | 
+                    <a href="https://wikilovesearth.bnwp.org/privacy-policy" data-key="footer-privacy" class="hover:underline">Privacy Policy</a>
+                </p>
+                <p data-key="footer-license">Content is available under CC BY-SA 4.0 unless otherwise noted.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript at the end of the body -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- Scroll Animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // --- Accordion ---
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('svg');
+                    const isOpen = content.style.maxHeight;
+
+                    // Close all other accordions
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            otherHeader.nextElementSibling.style.maxHeight = null;
+                            otherHeader.querySelector('svg').style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle current accordion
+                    if (isOpen) {
+                        content.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // --- Language Switcher ---
+            const translations = {
+                en: {
+                    'header-title': 'WLE Bangladesh 2025',
+                    'header-contact': 'Contact Us',
+                    'hero-title': 'Wiki Loves Earth 2025',
+                    'hero-subtitle': 'Celebrate the natural beauty of Bangladesh. Document. Share. Win.',
+                    'hero-btn-upload': 'Upload Photos',
+                    'hero-btn-areas': 'View Protected Areas',
+                    'about-title': 'About the Contest',
+                    'about-desc': 'Wiki Loves Earth Bangladesh 2025 is the local edition of the global nature photography competition organized by the Wikimedia Foundation and affiliates. The goal is to collect freely licensed photographs of protected natural areas and species to enrich Wikimedia Commons and educational content.',
+                    'about-dates-title': 'Dates',
+                    'about-dates-desc': '1 July – 31 July 2025',
+                    'about-who-title': 'Who can Participate?',
+                    'about-who-desc': 'Open to all photographers in Bangladesh',
+                    'about-focus-title': 'Focus',
+                    'about-focus-desc': 'National parks, eco-parks, wildlife sanctuaries, species close-ups',
+                    'how-title': 'How to Participate',
+                    'how-step1-title': 'Create Account',
+                    'how-step1-desc': 'Create a Wikimedia account.',
+                    'how-step1-link': '➜ Create one',
+                    'how-step2-title': 'Choose Area',
+                    'how-step2-desc': 'Choose a protected area.',
+                    'how-step2-link': '➜ See the list (বাংলা)',
+                    'how-step3-title': 'Take Photos',
+                    'how-step3-desc': 'Take photos – respectful to nature.',
+                    'how-step4-title': 'Upload',
+                    'how-step4-desc': 'Upload via Campaign Link.',
+                    'how-step4-link': '➜ Upload Now',
+                    'how-step5-title': 'Celebrate',
+                    'how-step5-desc': 'Celebrate your impact!',
+                    'rules-title': 'Contest Rules',
+                    'rules-q1': 'What are the photo requirements?',
+                    'rules-a1': 'Must be a minimum of 2 megapixels. Photo must be taken by you (the uploader).',
+                    'rules-q2': 'Where should photos be taken?',
+                    'rules-a2': 'Photos must be taken within a designated protected area of Bangladesh. This includes photos of the site itself or close-ups of species within that area.',
+                    'rules-q3': 'What is the upload period?',
+                    'rules-a3': 'All photos must be uploaded between July 1st and July 31st, 2025.',
+                    'rules-q4': 'How should I categorize my photos?',
+                    'rules-a4': 'All submissions must be properly categorized and described on Wikimedia Commons to be eligible.',
+                    'rules-link': '🖇 Full Rules (Commons)',
+                    'prizes-title': 'Prizes and Recognition',
+                    'prizes-global-title': '💰 Global Prizes',
+                    'prizes-global-list': `<li>Sponsored by Wiki Loves Earth International</li><li>Amazon or equivalent online gift vouchers</li><li>Top 15 from Bangladesh go to International Jury</li><li>Chance to be featured on Wikimedia channels</li>`,
+                    'prizes-local-title': '🎁 Local Prizes',
+                    'prizes-local-list': `<li>Special Wikimedia-themed souvenirs.</li><li>Top contributors may be invited to community events</li>`,
+                    'gallery-title': 'Gallery & Stats',
+                    'gallery-desc': 'See featured submissions from the 2025 competition.',
+                    'gallery-link': '📊 View Uploaded Image on Commons',
+                    'organizers-title': 'Meet the Organizers',
+                    'organizers-role1': 'Chief Organizer',
+                    'organizers-role2': 'Organizer',
+                    'organizers-role3': 'Organizer',
+                    'organizers-role4': 'Organizer',
+                    'organizers-role5': 'Organizer',
+                    'contact-title': 'Get in Touch',
+                    'contact-email': 'Email',
+                    'contact-telegram': 'Telegram',
+                    'contact-commons': 'Commons Talk Page',
+                    'footer-terms': 'Terms of Use',
+                    'footer-privacy': 'Privacy Policy',
+                    'footer-license': 'Content is available under CC BY-SA 4.0 unless otherwise noted.',
+                },
+                bn: {
+                    'header-title': 'উইকি লাভস আর্থ বাংলাদেশ ২০২৫',
+                    'header-contact': 'যোগাযোগ',
+                    'hero-title': 'উইকি লাভস আর্থ ২০২৫',
+                    'hero-subtitle': 'বাংলাদেশের প্রাকৃতিক সৌন্দর্যকে উদযাপন করুন। নথিভুক্ত করুন। ভাগ করুন। বিজয়ী হোন।',
+                    'hero-btn-upload': 'ছবি আপলোড করুন',
+                    'hero-btn-areas': 'সংরক্ষিত এলাকা দেখুন',
+                    'about-title': 'প্রতিযোগিতা সম্পর্কে',
+                    'about-desc': 'উইকি লাভস আর্থ বাংলাদেশ ২০২৫ হলো উইকিমিডিয়া ফাউন্ডেশন এবং এর সহযোগী সংস্থা দ্বারা আয়োজিত বিশ্বব্যাপী প্রকৃতি ফটোগ্রাফি প্রতিযোগিতার স্থানীয় সংস্করণ। এর লক্ষ্য হলো উইকিমিডিয়া কমন্স এবং শিক্ষামূলক বিষয়বস্তু সমৃদ্ধ করার জন্য সংরক্ষিত প্রাকৃতিক এলাকা ও প্রজাতির বিনামূল্যে লাইসেন্সযুক্ত ছবি সংগ্রহ করা।',
+                    'about-dates-title': 'তারিখ',
+                    'about-dates-desc': '১ জুলাই – ৩১ জুলাই ২০২৫',
+                    'about-who-title': 'কারা অংশ নিতে পারবে?',
+                    'about-who-desc': 'বাংলাদেশের সকল ফটোগ্রাফারদের জন্য উন্মুক্ত',
+                    'about-focus-title': 'লক্ষ্য',
+                    'about-focus-desc': 'জাতীয় উদ্যান, ইকোপার্ক, বন্যপ্রাণী অভয়ারণ্য, প্রজাতির ক্লোজ-আপ',
+                    'how-title': 'অংশগ্রহণের পদ্ধতি',
+                    'how-step1-title': 'অ্যাকাউন্ট তৈরি',
+                    'how-step1-desc': 'একটি উইকিমিডিয়া অ্যাকাউন্ট তৈরি করুন।',
+                    'how-step1-link': '➜ এখানে তৈরি করুন',
+                    'how-step2-title': 'এলাকা নির্বাচন',
+                    'how-step2-desc': 'একটি সংরক্ষিত এলাকা নির্বাচন করুন।',
+                    'how-step2-link': '➜ তালিকা দেখুন',
+                    'how-step3-title': 'ছবি তুলুন',
+                    'how-step3-desc': 'প্রকৃতির প্রতি শ্রদ্ধাশীল হয়ে ছবি তুলুন।',
+                    'how-step4-title': 'আপলোড করুন',
+                    'how-step4-desc': 'ক্যাম্পেইন লিঙ্কের মাধ্যমে আপলোড করুন।',
+                    'how-step4-link': '➜ এখন আপলোড করুন',
+                    'how-step5-title': 'উদযাপন',
+                    'how-step5-desc': 'আপনার অবদান উদযাপন করুন!',
+                    'rules-title': 'প্রতিযোগিতার নিয়মাবলী',
+                    'rules-q1': 'ছবির জন্য প্রয়োজনীয়তা কি?',
+                    'rules-a1': 'ন্যূনতম ২ মেগাপিক্সেল হতে হবে। ছবিটি অবশ্যই আপনার (আপলোডকারীর) তোলা হতে হবে।',
+                    'rules-q2': 'ছবিগুলো কোথায় তুলতে হবে?',
+                    'rules-a2': 'ছবি অবশ্যই বাংলাদেশের একটি নির্দিষ্ট সংরক্ষিত এলাকার মধ্যে তুলতে হবে। এর মধ্যে রয়েছে সেই স্থানের ছবি বা সেই এলাকার মধ্যে থাকা প্রজাতির ক্লোজ-আপ।',
+                    'rules-q3': 'আপলোড করার সময়কাল কখন?',
+                    'rules-a3': 'সকল ছবি ১লা জুলাই থেকে ৩১শে জুলাই, ২০২৫ এর মধ্যে আপলোড করতে হবে।',
+                    'rules-q4': 'আমার ছবিগুলো কিভাবে শ্রেণীবদ্ধ করব?',
+                    'rules-a4': 'যোগ্য বিবেচিত হওয়ার জন্য সমস্ত জমা দেওয়া ছবি উইকিমিডিয়া কমন্সে সঠিকভাবে শ্রেণীবদ্ধ এবং বর্ণনা করতে হবে।',
+                    'rules-link': '🖇 সম্পূর্ণ নিয়মাবলী (কমন্স)',
+                    'prizes-title': 'পুরস্কার ও স্বীকৃতি',
+                    'prizes-global-title': '💰 আন্তর্জাতিক পুরস্কার',
+                    'prizes-global-list': `<li>উইকি লাভস আর্থ ইন্টারন্যাশনাল দ্বারা স্পনসরকৃত</li><li>অ্যামাজন বা সমমানের অনলাইন গিফট ভাউচার</li><li>বাংলাদেশ থেকে সেরা ১৫ জন আন্তর্জাতিক জুরির কাছে যাবে</li><li>উইকিমিডিয়া চ্যানেলে প্রদর্শিত হওয়ার সুযোগ</li>`,
+                    'prizes-local-title': '🎁 স্থানীয় পুরস্কার',
+                    'prizes-local-list': `<li>বিশেষ উইকিমিডিয়া-থিমযুক্ত স্যুভেনিয়ার</li><li>শীর্ষ অবদানকারীদের কমিউনিটি ইভেন্টে আমন্ত্রণ জানানো হতে পারে</li>`,
+                    'gallery-title': 'গ্যালারি এবং পরিসংখ্যান',
+                    'gallery-desc': '২০২৫ প্রতিযোগিতার বৈশিষ্ট্যযুক্ত ছবিগুলো দেখুন।',
+                    'gallery-link': '📊 জমা দেওয়া ছবিগুলো কমন্সে দেখুন',
+                    'organizers-title': 'আয়োজকদের সাথে পরিচিত হন',
+                    'organizers-role1': 'প্রধান আয়োজক',
+                    'organizers-role2': 'আয়োজক',
+                    'organizers-role3': 'আয়োজক',
+                    'organizers-role4': 'আয়োজক',
+                    'organizers-role5': 'আয়োজক',
+                    'contact-title': 'যোগাযোগ করুন',
+                    'contact-email': 'ইমেইল',
+                    'contact-telegram': 'টেলিগ্রাম',
+                    'contact-commons': 'কমন্স আলোচনা পাতা',
+                    'footer-terms': 'ব্যবহারের শর্তাবলী',
+                    'footer-privacy': 'গোপনীয়তা নীতি',
+                    'footer-license': 'অন্যথায় উল্লেখ না থাকলে বিষয়বস্তু CC BY-SA 4.0 licences এর অধীনে উপলব্ধ।',
+                }
+            };
+            
+            const langEnBtn = document.getElementById('lang-en');
+            const langBnBtn = document.getElementById('lang-bn');
+            
+            function setLanguage(lang) {
+                const elements = document.querySelectorAll('[data-key]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if(translations[lang] && translations[lang][key]) {
+                        // Use innerHTML for lists to render the <li> tags
+                        if (key.includes('-list')) {
+                            el.innerHTML = translations[lang][key];
+                        } else {
+                            el.textContent = translations[lang][key];
+                        }
+                    }
+                });
+
+                document.documentElement.lang = lang;
+                const body = document.body;
+                const bengaliElements = document.querySelectorAll('.font-bengali, [data-key*="bn"]');
+
+                if (lang === 'bn') {
+                    body.classList.add('font-bengali');
+                    langBnBtn.classList.add('active');
+                    langEnBtn.classList.remove('active');
+                } else {
+                    body.classList.remove('font-bengali');
+                    langEnBtn.classList.add('active');
+                    langBnBtn.classList.remove('active');
+                }
+            }
+
+            langEnBtn.addEventListener('click', () => setLanguage('en'));
+            langBnBtn.addEventListener('click', () => setLanguage('bn'));
+
+            // Set initial language based on browser preference or default to 'en'
+            const userLang = navigator.language || navigator.userLanguage;
+            if (userLang.startsWith('bn')) {
+                setLanguage('bn');
+            } else {
+                setLanguage('en');
+            }
+        });
+    </script>
+</body>
+</html>
